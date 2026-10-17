@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#FAF6F0" />
+  <title>Undangan Syukuran Permandian — Hereun Sintikhe Balubun &amp; Michelete Miska Noya</title>
+  <meta name="description" content="Undangan Digital Acara Syukuran Permandian Hereun Sintikhe Balubun (Keluarga Besar Balubun-Kwando) &amp; Michelete Miska Noya (Keluarga Besar Noya-Ngabalin). Minggu, 18 Oktober 2026 Pukul 13:00 di Kediaman Bapak Dr. Daniel Balubun - Tisay, Belakang POM." />
+
+  <!-- Open Graph / WhatsApp Preview Meta Tags for GitHub Pages -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Undangan Syukuran Permandian — Hereun &amp; Michelete" />
+  <meta property="og:description" content="Minggu, 18 Oktober 2026 • Pukul 13:00 • Kediaman Bapak Dr. Daniel Balubun - Tisay, Belakang POM" />
+  <meta property="og:image" content="img/hereun-hero.jpg" />
+
+  <!-- Progressive Web Fonts with Instant System Fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="gate-locked">
+
+  <!-- Background Music Audio Element (Piano.mp3) -->
+  <audio id="bg-music" src="Piano.mp3" loop preload="auto"></audio>
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="scroll-progress-track" aria-hidden="true">
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- Ambient Petals & Twinkling Stars Canvas -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Ambient Music Toggle -->
+  <button type="button" class="music-fab" id="music-fab" aria-label="Putar atau Jeda Musik Latar Piano" title="Musik Latar Piano">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 18V5l12-2v13"></path>
+      <circle cx="6" cy="18" r="3"></circle>
+      <circle cx="18" cy="16" r="3"></circle>
+    </svg>
+  </button>
+
+  <!-- ========================================================================
+       OPENING COVER GATE (WELCOME OVERLAY)
+       ======================================================================== -->
+  <section class="cover-gate" id="cover-gate" aria-label="Sampul Undangan">
+    <div class="cover-card">
+      <div class="sacred-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M7 7h10"></path>
+        </svg>
+        <span>Syukuran Permandian Kudus</span>
+      </div>
+
+      <!-- Twin Arch Cover Portraits -->
+      <div class="cover-arches">
+        <div class="cover-arch-item">
+          <div class="cover-arch-halo"></div>
+          <div class="cover-arch-frame">
+            <img src="img/hereun-hero.jpg" alt="Hereun Sintikhe Balubun" />
+          </div>
+        </div>
+        <div class="cover-arch-item">
+          <div class="cover-arch-halo"></div>
+          <div class="cover-arch-frame">
+            <img src="img/michelete-hero.jpg" alt="Michelete Miska Noya" />
+          </div>
+        </div>
+      </div>
+
+      <p class="cover-subtitle">Kasih Karunia &amp; Sukacita Permandian Kudus</p>
+      <h1 class="cover-names">
+        Hereun Sintikhe Balubun
+        <span class="cover-amp">&amp;</span><br />
+        Michelete Miska Noya
+      </h1>
+
+      <p class="cover-families">
+        Keluarga Besar Balubun-Kwando &bull; Keluarga Besar Noya-Ngabalin
+      </p>
+
+      <div class="guest-box">
+        <p class="guest-label">Kepada Yth. Bapak / Ibu / Saudara / i</p>
+        <p class="guest-name" id="guest-name-display">Tamu Undangan Terkasih</p>
+      </div>
+
+      <div class="cover-actions">
+        <button type="button" class="btn-primary" id="btn-open-invite">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <span>Buka Undangan</span>
+        </button>
+        <button type="button" class="btn-secondary" id="btn-jump-location">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Lihat Lokasi &amp; Google Maps</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MAIN MOBILE-FIRST VERTICAL STORY
+       ======================================================================== -->
+  <main class="page-shell">
+
+    <!-- 1. HERO SHOWCASE -->
+    <section class="section-card hero-section reveal-on-scroll" id="beranda">
+      <div class="hero-top-ornament" aria-hidden="true">
+        <svg width="56" height="36" viewBox="0 0 64 42" fill="none">
+          <path d="M32 4V36M22 14H42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M12 30C18 24 24 26 32 34C40 26 46 24 52 30" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="32" cy="4" r="2" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <span class="section-eyebrow">Undangan Syukuran Permandian</span>
+      <h2 class="section-title">Berkat Sakramen Permandian</h2>
+
+      <div class="botanical-divider" aria-hidden="true">
+        <svg width="120" height="18" viewBox="0 0 120 18" fill="none">
+          <path d="M4 9H46M74 9H116" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.55"/>
+          <path d="M60 2L64 9L60 16L56 9L60 2Z" fill="currentColor" opacity="0.75"/>
+          <circle cx="50" cy="9" r="1.8" fill="currentColor"/>
+          <circle cx="70" cy="9" r="1.8" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <!-- Twin Arch Hero Portraits -->
+      <div class="twin-arch-showcase">
+        <div class="arch-pedestal">
+          <div class="arch-wrapper">
+            <div class="halo-ring"></div>
+            <div class="arch-photo-box">
+              <img src="img/hereun-hero.jpg" alt="Potret Hereun Sintikhe Balubun" />
+            </div>
+          </div>
+          <p class="arch-tag">Hereun</p>
+          <p class="arch-subtag">Balubun &ndash; Kwando</p>
+        </div>
+
+        <div class="arch-pedestal">
+          <div class="arch-wrapper">
+            <div class="halo-ring"></div>
+            <div class="arch-photo-box">
+              <img src="img/michelete-hero.jpg" alt="Potret Michelete Miska Noya" />
+            </div>
+          </div>
+          <p class="arch-tag">Michelete</p>
+          <p class="arch-subtag">Noya &ndash; Ngabalin</p>
+        </div>
+      </div>
+
+      <p class="hero-lead">
+        Dengan penuh kerendahan hati dan ucapan syukur atas kasih setia Tuhan Yesus Kristus, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam sukacita Syukuran Permandian putri dan keponakan kami terkasih:
+      </p>
+
+      <div class="hero-names-stack">
+        <div class="hero-child-block">
+          <h3 class="hero-child-name">Hereun Sintikhe Balubun</h3>
+          <span class="hero-family-pill">Keluarga Besar Balubun-Kwando</span>
+        </div>
+
+        <div class="hero-divider-amp" aria-hidden="true">&amp;</div>
+
+        <div class="hero-child-block">
+          <h3 class="hero-child-name">Michelete Miska Noya</h3>
+          <span class="hero-family-pill">Keluarga Besar Noya-Ngabalin</span>
+        </div>
+      </div>
+
+      <!-- Live Countdown Timer -->
+      <div class="countdown-wrap">
+        <p class="countdown-label" id="countdown-status-label">Menuju Hari Sukacita &bull; Minggu, 18 Oktober 2026</p>
+        <div class="countdown-grid" role="timer" aria-label="Hitung mundur acara">
+          <div class="countdown-box">
+            <span class="countdown-num" id="cd-days">00</span>
+            <span class="countdown-unit">Hari</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-num" id="cd-hours">00</span>
+            <span class="countdown-unit">Jam</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-num" id="cd-mins">00</span>
+            <span class="countdown-unit">Menit</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-num" id="cd-secs">00</span>
+            <span class="countdown-unit">Detik</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SCRIPTURE QUOTE SECTION -->
+    <section class="section-card quote-card reveal-on-scroll" aria-label="Kutipan Ayat Alkitab">
+      <div class="quote-icon" aria-hidden="true">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 3c-4.5 4.5-7 7.8-7 11a7 7 0 0 0 14 0c0-3.2-2.5-6.5-7-11z"></path>
+        </svg>
+      </div>
+      <blockquote class="verse-text">
+        &ldquo;Biarkan anak-anak itu datang kepada-Ku, jangan menghalang-halangi mereka, sebab orang-orang yang seperti itulah yang empunya Kerajaan Allah.&rdquo;
+      </blockquote>
+      <span class="verse-ref">Markus 10 : 14</span>
+
+      <p class="verse-secondary">
+        &ldquo;Tuhan adalah Gembalaku, takkan kekurangan aku&rdquo; &mdash; <strong>Mazmur 23 : 1</strong>
+      </p>
+    </section>
+
+    <!-- 3. INDIVIDUAL PROFILE CARDS -->
+    <section class="section-card reveal-on-scroll" id="profil">
+      <div class="section-header">
+        <span class="section-eyebrow">Buah Hati Terkasih</span>
+        <h2 class="section-title">Putri Terkasih yang Dibaptis</h2>
+        <div class="botanical-divider" aria-hidden="true">
+          <svg width="100" height="16" viewBox="0 0 100 16" fill="none">
+            <path d="M5 8H38M62 8H95" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <circle cx="50" cy="8" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="profiles-grid">
+        <!-- Profile 1: Hereun Sintikhe Balubun -->
+        <article class="profile-card">
+          <div class="profile-portrait-wrap">
+            <div class="profile-portrait-halo"></div>
+            <div class="profile-portrait" data-open-subject="hereun" title="Ketuk untuk melihat galeri foto Hereun">
+              <img src="img/hereun-profile.jpg" alt="Potret Hereun Sintikhe Balubun" />
+            </div>
+          </div>
+          <span class="profile-role-badge">Putri Terkasih</span>
+          <h3 class="profile-name">Hereun Sintikhe Balubun</h3>
+          <div class="profile-family-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span>Keluarga Besar Balubun-Kwando</span>
+          </div>
+          <p class="profile-blessing">
+            Kiranya rahmat permandian kudus menuntun Hereun bertumbuh dalam iman, hikmat, dan kasih Kristus, menjadi putri pembawa terang serta sukacita bagi keluarga dan sesama.
+          </p>
+        </article>
+
+        <!-- Profile 2: Michelete Miska Noya -->
+        <article class="profile-card">
+          <div class="profile-portrait-wrap">
+            <div class="profile-portrait-halo"></div>
+            <div class="profile-portrait" data-open-subject="michelete" title="Ketuk untuk melihat galeri foto Michelete">
+              <img src="img/michelete-profile.jpg" alt="Potret Michelete Miska Noya" />
+            </div>
+          </div>
+          <span class="profile-role-badge">Putri Terkasih</span>
+          <h3 class="profile-name">Michelete Miska Noya</h3>
+          <div class="profile-family-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span>Keluarga Besar Noya-Ngabalin</span>
+          </div>
+          <p class="profile-blessing">
+            Kiranya berkat air permandian senantiasa menyertai setiap langkah Michelete, melimpahkan damai sejahtera, kesehatan, dan kasih karunia di dalam Tuhan.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. EVENT SCHEDULE & GOOGLE MAPS INTEGRATION -->
+    <section class="section-card reveal-on-scroll" id="lokasi">
+      <div class="section-header">
+        <span class="section-eyebrow">Waktu &amp; Tempat</span>
+        <h2 class="section-title">Jadwal &amp; Lokasi Acara</h2>
+        <div class="botanical-divider" aria-hidden="true">
+          <svg width="100" height="16" viewBox="0 0 100 16" fill="none">
+            <path d="M5 8H38M62 8H95" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <circle cx="50" cy="8" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="event-details-list">
+        <!-- Date -->
+        <div class="event-info-row">
+          <div class="event-icon-circle" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <div>
+            <p class="event-info-label">Hari &amp; Tanggal</p>
+            <p class="event-info-value">Minggu, 18 Oktober 2026</p>
+            <p class="event-info-sub">Ibadah &amp; Ramah Tamah Syukuran Permandian</p>
+          </div>
+        </div>
+
+        <!-- Time -->
+        <div class="event-info-row">
+          <div class="event-icon-circle" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <p class="event-info-label">Waktu Pelaksanaan</p>
+            <p class="event-info-value">Pukul 13:00 (Jam 1 Siang)</p>
+            <p class="event-info-sub">13:00 &ndash; Selesai</p>
+          </div>
+        </div>
+
+        <!-- Venue -->
+        <div class="event-info-row">
+          <div class="event-icon-circle" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div>
+            <p class="event-info-label">Tempat Pelaksanaan</p>
+            <p class="event-info-value">Kediaman Bapak Dr. Daniel Balubun</p>
+            <p class="event-info-sub">Tisay, Belakang POM</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aesthetic Interactive Google Maps Card -->
+      <div class="map-showcase-card">
+        <div class="map-visual-illustration" aria-hidden="true">
+          <svg class="map-svg-bg" viewBox="0 0 400 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="400" height="160" fill="#EFE7D8"/>
+            <path d="M-20 40 C 80 35, 140 85, 240 70 C 310 58, 360 95, 420 90" stroke="#DFD3BE" stroke-width="18" stroke-linecap="round"/>
+            <path d="M90 -10 C 110 50, 165 90, 195 175" stroke="#DFD3BE" stroke-width="14" stroke-linecap="round"/>
+            <path d="M285 -10 C 265 65, 240 110, 220 175" stroke="#E5DAC7" stroke-width="10" stroke-linecap="round"/>
+            <path d="M-20 40 C 80 35, 140 85, 240 70 C 310 58, 360 95, 420 90" stroke="#FFFDF9" stroke-width="3" stroke-dasharray="6 6"/>
+            <circle cx="170" cy="76" r="34" fill="rgba(194, 155, 83, 0.14)"/>
+            <circle cx="170" cy="76" r="18" fill="rgba(194, 155, 83, 0.25)"/>
+          </svg>
+          <div class="map-pin-badge">
+            <div class="map-pin-Dot">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <span class="map-pin-label">Kediaman Bpk. Dr. Daniel Balubun &bull; Tisay, Belakang POM</span>
+          </div>
+        </div>
+
+        <div class="map-actions-grid">
+          <a href="https://maps.app.goo.gl/f7eLwaeYmprcdi9L9?g_st=aw" target="_blank" rel="noopener noreferrer" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+            </svg>
+            <span>Petunjuk Arah di Google Maps</span>
+          </a>
+
+          <div class="map-secondary-actions">
+            <button type="button" class="btn-secondary" id="btn-copy-map">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Salin Link Peta</span>
+            </button>
+
+            <button type="button" class="btn-secondary" id="btn-add-calendar">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Simpan Kalender</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FILTERABLE PHOTO GALLERY -->
+    <section class="section-card reveal-on-scroll" id="galeri">
+      <div class="section-header">
+        <span class="section-eyebrow">Potret Sukacita</span>
+        <h2 class="section-title">Galeri Hereun &amp; Michelete</h2>
+        <div class="botanical-divider" aria-hidden="true">
+          <svg width="100" height="16" viewBox="0 0 100 16" fill="none">
+            <path d="M5 8H38M62 8H95" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+            <circle cx="50" cy="8" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="gallery-tabs" role="tablist" aria-label="Filter Galeri Foto">
+        <button type="button" class="gallery-tab-btn is-active" data-filter="all" role="tab">
+          Semua Foto (22)
+        </button>
+        <button type="button" class="gallery-tab-btn" data-filter="hereun" role="tab">
+          Hereun (11)
+        </button>
+        <button type="button" class="gallery-tab-btn" data-filter="michelete" role="tab">
+          Michelete (11)
+        </button>
+      </div>
+
+      <!-- Responsive Photo Grid (populated by script.js) -->
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+
+    <!-- 6. CLOSING GRATITUDE & HOST FAMILIES -->
+    <section class="section-card reveal-on-scroll" style="text-align: center;">
+      <span class="section-eyebrow">Ungkapan Terima Kasih</span>
+      <h2 class="section-title">Doa &amp; Kehadiran Anda</h2>
+      <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-body);">
+        Merupakan suatu kehormatan dan sukacita yang mendalam bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir serta memberikan doa restu bagi pertumbuhan iman kedua putri kami terkasih.
+      </p>
+
+      <div class="closing-families-grid">
+        <div class="family-host-box">
+          <p class="family-host-label">Keluarga Besar</p>
+          <p class="family-host-name">Balubun &ndash; Kwando</p>
+        </div>
+        <div class="family-host-box">
+          <p class="family-host-label">Keluarga Besar</p>
+          <p class="family-host-name">Noya &ndash; Ngabalin</p>
+        </div>
+      </div>
+
+      <p style="font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; color: var(--gold-deep); margin-top: 6px;">
+        Tuhan Yesus Memberkati Kita Semua
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       TOUCH-SWIPEABLE LIGHTBOX MODAL
+       ======================================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Tampilan Foto Penuh">
+    <div class="lightbox-topbar">
+      <span class="lightbox-counter" id="lightbox-counter">1 / 22</span>
+      <button type="button" class="lightbox-close-btn" id="lightbox-close" aria-label="Tutup Galeri">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="lightbox-stage">
+      <button type="button" class="lightbox-nav-btn lightbox-prev" id="lightbox-prev" aria-label="Foto Sebelumnya">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-img-wrapper">
+        <img id="lightbox-img" src="img/hereun-01.jpg" alt="Foto Galeri" />
+      </div>
+
+      <button type="button" class="lightbox-nav-btn lightbox-next" id="lightbox-next" aria-label="Foto Berikutnya">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div class="lightbox-caption-box">
+      <p class="lightbox-caption-title" id="lightbox-title">Hereun Sintikhe Balubun</p>
+      <p class="lightbox-caption-sub" id="lightbox-sub">Keluarga Besar Balubun-Kwando</p>
+      <p class="lightbox-swipe-hint">Geser kiri / kanan untuk melihat foto lainnya</p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FLOATING MOBILE BOTTOM NAVIGATION BAR
+       ======================================================================== -->
+  <nav class="bottom-navbar" aria-label="Navigasi Utama">
+    <a href="#beranda" class="nav-item is-active">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+      </svg>
+      <span>Beranda</span>
+    </a>
+    <a href="#profil" class="nav-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+      </svg>
+      <span>Profil</span>
+    </a>
+    <a href="#lokasi" class="nav-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+      <span>Lokasi</span>
+    </a>
+    <a href="#galeri" class="nav-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+        <polyline points="21 15 16 10 5 21"></polyline>
+      </svg>
+      <span>Galeri</span>
+    </a>
+  </nav>
+
+  <!-- Toast Feedback -->
+  <div class="toast-msg" id="toast-msg" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
